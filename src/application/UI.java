@@ -1,5 +1,8 @@
 package application;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class UI {
 
 	//Limpa a tela
@@ -10,8 +13,10 @@ public class UI {
 	}
 	
 	//Mostra o menu para o usuário (Pela primeira vez)
-	public static void printMatch(char[] letras, boolean[] letraDescoberta, int lives) {
+	public static void printMatch(char[] letras, boolean[] letraDescoberta, int lives, List<Character> usedLetters) {
 		char[] word = printLetters(letras, letraDescoberta);
+		//Impede que seja mostrado mais de uma vez a mesma letra nas letras usadas
+		String used = usedLetters.stream().distinct().collect(Collectors.toList()).toString();
 		
 		System.out.println();
 		System.out.println("===========================================");
@@ -19,13 +24,14 @@ public class UI {
 		System.out.println("===========================================");
 		System.out.println();
 		
-		System.out.println("Palavra:");
+		System.out.print("Palavra: ");
 		System.out.println(word);
 		
 		System.out.println();
-		System.out.println();
 		System.out.println("Vidas: " + lives);
-		System.out.println("Letras usadas: ");
+		System.out.print("Letras usadas: ");
+		System.out.println(used.toString()); //Imprime as letras usadas
+		
 		System.out.println("===========================================");
 		System.out.println();
 		System.out.print("Digite uma letra: ");

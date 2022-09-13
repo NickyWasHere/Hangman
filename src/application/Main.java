@@ -4,7 +4,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import game.Match;
-import game.Words;
 
 public class Main {
 
@@ -24,7 +23,7 @@ public class Main {
 		while (match.getLives()>0 && match.getWin()==false) {
 		
 			UI.clearScreen();
-			UI.printMatch(match.getChosenWord(), letraDescoberta, match.getLives()); //Mostra o menu
+			UI.printMatch(match.getChosenWord(), letraDescoberta, match.getLives(), match.getUsedLetters()); //Mostra o menu
 			
 			try {
 				char letra = sc.next().charAt(0);
