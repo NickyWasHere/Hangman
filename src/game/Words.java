@@ -20,12 +20,12 @@ public class Words {
 	//Construtor
 	public Words(String file) {
 		this.file = new File(file);
-		this.wordsList = readFile();
 		try {
 			this.read = new Scanner(this.file);
 		} catch (FileNotFoundException err) {
 			System.out.println("File not found");
 		}
+		this.wordsList = readFile();
 	}
 	
 	public File getFile() {
