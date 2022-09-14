@@ -12,9 +12,33 @@ public class UI {
 		
 	}
 	
+	//Escolhe o modo de jogo
+	public static void chooseMode() {
+		clearScreen();
+		
+		System.out.println();
+		System.out.println("===========================================");
+		System.out.println("               Jogo da Forca               ");
+		System.out.println("===========================================");
+		System.out.println();
+		
+		System.out.println(" Digite o número do modo que desenha jogar ");
+		System.out.println();
+		System.out.println("1 - Normal");
+		System.out.println("2 - Difícil");
+		System.out.println("3 - Inglês");
+		System.out.println();
+		
+		System.out.println("===========================================");
+		System.out.println();
+		System.out.print("Escolha sua opção: ");
+	}
+	
 	//Mostra o menu para o usuário (Pela primeira vez)
 	public static void printMatch(char[] letras, boolean[] letraDescoberta, int lives, List<Character> usedLetters) {
 		char[] word = printLetters(letras, letraDescoberta);
+		clearScreen();
+		
 		//Impede que seja mostrado mais de uma vez a mesma letra nas letras usadas
 		String used = usedLetters.stream().distinct().collect(Collectors.toList()).toString();
 		
@@ -54,16 +78,37 @@ public class UI {
 	}
 	
 	public static void youWin() {
+		clearScreen();
+		
+		System.out.println();
 		System.out.println("===========================================");
 		System.out.println("         Parabéns, você venceu! :)         ");    
 		System.out.println("              Jogo encerrado               ");
-		System.out.println("===========================================");	
 	}
 	
 	public static void youLose() {
+		clearScreen();
+		
+		System.out.println();
 		System.out.println("===========================================");
 		System.out.println("          Suas vidas acabaram! :(          ");    
 		System.out.println("              Jogo encerrado               ");
+	}
+	
+	public static void playAgain() {
+		System.out.println();	
+		System.out.println("       Gostaria de jogar novamente?        ");    
+		System.out.println("                  (S/N)                    ");
 		System.out.println("===========================================");	
+		
+		System.out.println();
+		System.out.print("Digite sua resposta: ");
+	}
+	
+	public static void errorPlayAgain() {
+		clearScreen();
+		System.out.println();
+		System.out.println("===========================================");
+		System.out.println("     Por favor digite uma das 2 opções     ");
 	}
 }
