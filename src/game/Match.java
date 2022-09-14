@@ -82,13 +82,15 @@ public class Match {
 		for (char c : letras) {
 			if (letra==c) {
 				letraDescoberta[cont] = true;
-				usedLetters.add(letra);
+				
 				
 			} else {
 				contErro++; //Soma quantas vezes o usuário errou uma das letras
 			}
 			cont++;
 		}
+		
+		usedLetters.add(letra);
 		
 		checkError(contErro, letras);
 		

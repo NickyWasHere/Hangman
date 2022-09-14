@@ -86,12 +86,19 @@ public class UI {
 		System.out.println("              Jogo encerrado               ");
 	}
 	
-	public static void youLose() {
+	public static void youLose(char[] chosenWord) {
 		clearScreen();
+		
+		System.out.println();
+		System.out.print("A palavra era: ");
+		for (char c : chosenWord) {
+			System.out.print(c);
+		}
 		
 		System.out.println();
 		System.out.println("===========================================");
 		System.out.println("          Suas vidas acabaram! :(          ");    
+		System.out.println();
 		System.out.println("              Jogo encerrado               ");
 	}
 	

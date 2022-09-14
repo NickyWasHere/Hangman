@@ -66,7 +66,7 @@ public class Main {
 				UI.youWin();
 				
 			} else if (match.getLives()<=0) {
-				UI.youLose();
+				UI.youLose(match.getChosenWord());
 				
 			}
 		
