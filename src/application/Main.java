@@ -78,18 +78,24 @@ public class Main {
 		
 		return match;
 	}
-	
-	//Procedimento para repetir sem descontar vidas caso o usuário digite algo diferente de um caracter
+
 	public static void gameplayLoop(Match match, boolean[] letraDescoberta, Scanner sc) {
 		//Mostra o menu
 		UI.printMatch(match.getChosenWord(), letraDescoberta, match.getLives(), match.getUsedLetters()); 
 		
 		try {
-			char letra = sc.next().charAt(0); //ERRO: o programa aceita números e caracteres especiais
+			char letra = sc.next().charAt(0);
 			
-			//Checa se o usuário acertou alguma letra
-			letraDescoberta = match.checkLetter(letra, letraDescoberta, match.getChosenWord()); 
-			match.didYouWin(letraDescoberta);
+			if (Character.isDigit(letra)) { //Checa se o valor é um número
+				UI.error("Por favor digite uma letra");
+				gameplayLoop(match, letraDescoberta, sc);
+				
+			} else {
+				//Checa se o usuário acertou alguma letra
+				letraDescoberta = match.checkLetter(letra, letraDescoberta, match.getChosenWord()); 
+				match.didYouWin(letraDescoberta);
+				
+			}
 			
 		} catch (InputMismatchException err) {
 			//Jogo encerra pois houve erro ao tentar repetir este pedaço
